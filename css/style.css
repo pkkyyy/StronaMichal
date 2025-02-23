@@ -262,3 +262,30 @@ footer p {
     opacity: 1;
   }
 }
+
+.custom-shape-divider-bottom-hero {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-hero svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 450px);
+  height: 150px; /* Adjust the height as needed */
+}
+
+.custom-shape-divider-bottom-hero .shape-fill {
+  fill: #050505; /* Match your black background */
+  stroke: none;
+}
+
+/* Reverse the shape */
+.custom-shape-divider-bottom-hero.reversed {
+  transform: scaleY(-1);
+}
+
