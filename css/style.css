@@ -1,20 +1,13 @@
-/* ==========================
-   style.css - FINAL EXAMPLE
-   ========================== */
-
-/* Import czcionki Montserrat (opcjonalnie możesz użyć <link> w <head>). */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-/* Kolorystyka dla ciemnego motywu */
 :root {
-  --primary: #0f0f0f;     /* ciemny szary */
-  --secondary: #262626;   /* nieco jaśniejszy szary */
-  --accent: #FFCA28;      /* turkusowy akcent, np. do hover/linków */
-  --light: #f0f0f0;       /* jasny tekst */
-  --dark: #000000;        /* czerń */
+  --primary: #0f0f0f;
+  --secondary: #262626;
+  --accent: #FFCA28;
+  --light: #f0f0f0;
+  --dark: #000000;
 }
 
-/* Reset globalny + czcionka */
 body {
   margin: 0;
   padding: 0;
@@ -27,7 +20,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* --- Nawigacja (przykład) --- */
 nav {
   background-color: rgba(15, 15, 15, 0.9);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -41,7 +33,6 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* --- Przykładowe przyciski --- */
 button {
   background: var(--accent);
   border: none;
@@ -56,7 +47,6 @@ button:hover {
   background: #FFCA28;
 }
 
-/* --- HERO SECTION (przykład) --- */
 .hero {
   background: url('images/hero.jpg') center/cover no-repeat;
   position: relative;
@@ -74,7 +64,6 @@ button:hover {
   color: #ffffff;
 }
 
-/* --- Galeria (przykład) --- */
 .gallery-item {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -89,15 +78,18 @@ button:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   z-index: 5;
 }
+
 .gallery-item img {
   transition: transform 0.3s ease, filter 0.3s ease;
+  height: 220px;
 }
+
 .gallery-item:hover img {
-  transform: scale(1.08);
+  transform: scale(1.1);
   filter: brightness(1.1);
 }
 
-/* --- Modal (przykład) --- */
+
 .modal {
   display: none;
   position: fixed;
@@ -108,7 +100,7 @@ button:hover {
   justify-content: center;
 }
 .modal-content {
-  background-color: #424141;
+  background-color: #111827;
   color: #f0f0f0;
   border-radius: 0.5rem;
   width: 90%;
@@ -127,7 +119,6 @@ button:hover {
   cursor: pointer;
 }
 
-/* --- Przykładowy layout .modal-body w dwóch kolumnach --- */
 .modal-body {
   display: flex;
   flex-direction: column;
@@ -152,7 +143,7 @@ button:hover {
 }
 
 .compare-inner {
-  width: 200%;
+  width: 100%;
   height: 100%;
   transform: translateX(-25%);
   transition: transform 0.7s ease;
@@ -185,4 +176,39 @@ button:hover {
 
 footer p {
   color: #aaa;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #92400e, #f59e0b);
+  border-radius: 5px;
+  animation: pulseScrollbar 2s infinite ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #78350f, #d97706);
+  animation: none;
+}
+
+@keyframes pulseScrollbar {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }

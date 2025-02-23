@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Michał </title>
+  <title>Michał Saliński</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,16 +24,24 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+<!-- Lightbox dla powiększania zdjęć -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
+  <span id="close-lightbox" class="absolute top-5 right-5 text-white text-3xl cursor-pointer">&times;</span>
+  <button id="prev-image" class="absolute left-5 text-white text-4xl cursor-pointer hidden">&larr;</button>
+  <img id="lightbox-img" class="max-w-full max-h-full rounded shadow-lg" src="" alt="Podgląd zdjęcia">
+  <button id="next-image" class="absolute right-5 text-white text-4xl cursor-pointer hidden">&rarr;</button>
+</div>
+
 <body class="bg-gray-900 text-gray-100 font-montserrat">
   <!-- Navigation -->
   <nav class="bg-gray-800 bg-opacity-90 shadow fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-amber-500">Michał S</a>
+      <a href="#" class="text-xl font-bold text-amber-500">Michał Saliński</a>
       <div class="space-x-4">
-        <a href="#hero" class="hover:text-amber-400">Home</a>
-        <a href="#about" class="hover:text-amber-400">O mnie</a>
-        <a href="#gallery" class="hover:text-amber-400">Galeria</a>
-        <a href="#contact" class="hover:text-amber-400">Kontakt</a>
+        <a href="#hero" class="hover:text-amber-400">STRONA GŁÓWNA</a>
+        <a href="#about" class="hover:text-amber-400">O MNIE</a>
+        <a href="#gallery" class="hover:text-amber-400">GALERIA</a>
+        <a href="#contact" class="hover:text-amber-400">KONTAKT</a>
       </div>
     </div>
   </nav>
@@ -54,11 +62,11 @@
       <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">O mnie</h2>
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="md:w-1/2">
-          <img src="images/photo1.jpg" alt="Zdjęcie trenera" class="w-full h-auto rounded shadow">
+          <img src="images/IMG_7078.jpeg" alt="Zdjęcie trenera" class="w-full h-auto rounded shadow">
         </div>
         <div class="md:w-1/2 text-gray-200">
           <p class="text-lg leading-relaxed">
-            Nazywam się [Twoje Imię] i jestem profesjonalnym trenerem personalnym. Moja pasja do zdrowego stylu życia i sportu pozwala mi pomagać ludziom osiągać ich cele. Dzięki wieloletniemu doświadczeniu oferuję indywidualne podejście do każdego klienta, dostosowując treningi do jego potrzeb.
+            Nazywam się Michał Saliński i jestem profesjonalnym trenerem personalnym. Moja pasja do zdrowego stylu życia i sportu pozwala mi pomagać ludziom osiągać ich cele. Dzięki wieloletniemu doświadczeniu oferuję indywidualne podejście do każdego klienta, dostosowując treningi do jego potrzeb.
           </p>
         </div>
       </div>
@@ -71,13 +79,13 @@
       <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Galeria</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div class="gallery-item">
-          <img src="images/photo1.jpg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
+          <img src="images/IMG_7117.jpeg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
         </div>
         <div class="gallery-item">
-          <img src="images/photo2.jpg" alt="Zdjęcie 2" class="w-full h-48 object-cover rounded shadow">
+          <img src="images/IMG_7131.jpeg" alt="Zdjęcie 2" class="w-full h-48 object-cover rounded shadow">
         </div>
         <div class="gallery-item">
-          <img src="images/photo3.jpg" alt="Zdjęcie 3" class="w-full h-48 object-cover rounded shadow">
+          <img src="images/IMG_7151.jpeg" alt="Zdjęcie 3" class="w-full h-48 object-cover rounded shadow">
         </div>
         <div class="gallery-item">
           <img src="images/photo4.jpg" alt="Zdjęcie 4" class="w-full h-48 object-cover rounded shadow">
@@ -145,22 +153,37 @@
       <div class="flex flex-col items-center">
         <!-- Social media icons (with phone icon on the left) -->
         <div id="socialIcons" class="mb-4 flex items-center space-x-6">
-          <!-- Phone icon + tooltip on hover -->
+          <!-- Telefon -->
           <div class="relative group">
-            <i class="fas fa-phone text-2xl text-amber-400 cursor-pointer"></i>
-            <!-- Tooltip that appears on hover -->
+            <i class="fas fa-phone text-2xl text-amber-400 cursor-pointer copy-icon" data-copy="+48 123 456 789"></i>
             <span
-              class="absolute bottom-[120%] left-1/2 -translate-x-1/2 bg-amber-700 text-white text-sm p-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300">
-              +48 123 456 789
+              class="absolute left-1/2 transform -translate-x-1/2 bg-amber-700 text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 
+                    pointer-events-none transition-opacity duration-300 whitespace-nowrap mt-10">
+              +48 515 905 022
+            </span>
+            <!-- Powiadomienie o kopiowaniu -->
+            <span class="copy-notification absolute top-[-30px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded opacity-0 transition-opacity duration-300">
+              Skopiowano!
             </span>
           </div>
-          <a href="https://facebook.com/yourprofile" target="_blank" class="text-blue-500 text-2xl hover:text-blue-600">
+
+          <!-- E-mail -->
+          <div class="relative group">
+            <i class="fas fa-envelope text-2xl text-amber-400 cursor-pointer copy-icon" data-copy="salinski.trener@gmail.com"></i>
+            <span
+              class="absolute left-1/2 transform -translate-x-1/2 bg-amber-700 text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 
+                    pointer-events-none transition-opacity duration-300 whitespace-nowrap mt-10">
+              salinski.trener@gmail.com
+            </span>
+            <!-- Powiadomienie o kopiowaniu -->
+            <span class="copy-notification absolute top-[-30px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded opacity-0 transition-opacity duration-300">
+              Skopiowano!
+            </span>
+          </div>     
+          <a href="https://www.facebook.com/profile.php?id=100001004035954" target="_blank" class="text-blue-500 text-2xl hover:text-blue-600">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="https://twitter.com/yourprofile" target="_blank" class="text-blue-400 text-2xl hover:text-blue-500">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://instagram.com/yourprofile" target="_blank" class="text-pink-500 text-2xl hover:text-pink-600">
+          <a href="https://instagram.com/salik_trener/ " target="_blank" class="text-pink-500 text-2xl hover:text-pink-600">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
@@ -174,14 +197,13 @@
       <span id="modalClose" class="modal-close">&times;</span>
       <div class="modal-body flex flex-col md:flex-row gap-6">
         <!-- Left Column: Cennik -->
-        <div class="left-column border border-gray-700 rounded p-4 bg-black-700">
+        <div class="left-column border border-gray-700 rounded p-4 bg-[#1f2937]">
           <h2 class="text-2xl font-bold text-amber-600 mb-4">Cennik</h2>
           <div class="space-y-4" id="pricingCardsContainer">
             <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
                  data-title="Trening Jednorazowy" 
                  data-price="100" 
-                 data-description="Idealny na początek lub próbny trening." 
-                 data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                 data-description="Idealny na początek lub próbny trening.">
               <h3 class="text-xl font-bold">Trening Jednorazowy</h3>
               <p class="text-lg text-amber-600">100 PLN</p>
               <p class="text-sm">Idealny na początek lub próbny trening.</p>
@@ -189,8 +211,7 @@
             <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
                  data-title="Pakiet 5 Treningów" 
                  data-price="450" 
-                 data-description="Optymalny wybór dla regularnych treningów." 
-                 data-video="https://www.youtube.com/embed/9bZkp7q19f0">
+                 data-description="Optymalny wybór dla regularnych treningów.">
               <h3 class="text-xl font-bold">Pakiet 5 Treningów</h3>
               <p class="text-lg text-amber-600">450 PLN</p>
               <p class="text-sm">Optymalny wybór dla regularnych treningów.</p>
@@ -198,8 +219,7 @@
             <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
                  data-title="Pakiet 10 Treningów" 
                  data-price="850" 
-                 data-description="Najlepsza oferta dla pełnej metamorfozy." 
-                 data-video="https://www.youtube.com/embed/3GwjfUFyY6M">
+                 data-description="Najlepsza oferta dla pełnej metamorfozy.">
               <h3 class="text-xl font-bold">Pakiet 10 Treningów</h3>
               <p class="text-lg text-amber-600">850 PLN</p>
               <p class="text-sm">Najlepsza oferta dla pełnej metamorfozy.</p>
@@ -207,8 +227,7 @@
             <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
                  data-title="Pakiet 15 Treningów" 
                  data-price="1850" 
-                 data-description="Kompleksowy pakiet treningów dla pełnej transformacji." 
-                 data-video="https://www.youtube.com/embed/OVr5M9uLJ7Y">
+                 data-description="Kompleksowy pakiet treningów dla pełnej transformacji.">
               <h3 class="text-xl font-bold">Pakiet 15 Treningów</h3>
               <p class="text-lg text-amber-600">1850 PLN</p>
               <p class="text-sm">Kompleksowy pakiet treningów dla pełnej transformacji.</p>
@@ -216,7 +235,7 @@
           </div>
         </div>
         <!-- Ebooks Section -->
-        <div class="right-column border border-gray-700 rounded p-4 bg-black-700">
+        <div class="right-column border border-gray-700 rounded p-4 bg-[#1f2937]">
           <h2 class="text-2xl font-bold text-amber-600 mb-4">Pobierz Ebook</h2>
           <div class="bg-[#262626] p-6 rounded shadow">
             <form id="ebookForm">
@@ -228,15 +247,10 @@
                   <option value="ebook3" data-file="ebook3.pdf">Ebook 3: Dieta i zdrowy styl życia</option>
                 </select>
               </div>
-              <div class="mb-4">
-                <label for="emailEbook" class="block text-sm font-medium mb-1">Twój Email:</label>
-                <input type="email" id="emailEbook" name="email" class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600" placeholder="twoj@email.com" required>
-              </div>
-              <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded">Pobierz Ebook</button>
             </form>
             <div id="ebookResult" class="mt-4 text-center text-amber-600 font-semibold"></div>
             <!-- Dodaj przycisk do pobierania bez maila -->
-            <button id="downloadWithoutEmail" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded mt-4">Pobierz bez podawania maila</button>
+            <button id="downloadWithoutEmail" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded mt-4">Pobierz Ebook</button>
           </div>
         </div>
       </div>

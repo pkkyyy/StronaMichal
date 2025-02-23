@@ -1,4 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeLightbox = document.getElementById("close-lightbox");
+  const prevBtn = document.getElementById("prev-image");
+  const nextBtn = document.getElementById("next-image");
+  const galleryImages = document.querySelectorAll(".gallery-item img");
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightbox.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Blokowanie scrollowania
+
+    // Ukryj przyciski jeśli to pierwszy lub ostatni obraz
+    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+    nextBtn.style.display = currentIndex === galleryImages.length - 1 ? "none" : "block";
+  }
+
+  function closeLightboxFunc() {
+    lightbox.classList.add("hidden");
+    document.body.style.overflow = ""; // Przywrócenie scrollowania
+  }
+
+  function changeImage(direction) {
+    if (direction === "next" && currentIndex < galleryImages.length - 1) {
+      currentIndex++;
+    } else if (direction === "prev" && currentIndex > 0) {
+      currentIndex--;
+    }
+    openLightbox(currentIndex);
+  }
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  closeLightbox.addEventListener("click", closeLightboxFunc);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightboxFunc();
+  });
+
+  prevBtn.addEventListener("click", () => changeImage("prev"));
+  nextBtn.addEventListener("click", () => changeImage("next"));
+
+  // Obsługa klawiatury
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("hidden")) {
+      if (e.key === "ArrowLeft") changeImage("prev");
+      if (e.key === "ArrowRight") changeImage("next");
+      if (e.key === "Escape") closeLightboxFunc();
+    }
+  });
+
   // Modal Handling
   const modal = document.getElementById("reservationModal");
   const openModalBtn = document.getElementById("openReservation");
@@ -21,15 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
         document.body.style.overflow = "";
       }
-    });
-  }
-
-  // Ebook Form Logic
-  const ebookForm = document.getElementById("ebookForm");
-  if (ebookForm) {
-    ebookForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      alert("Ebook został zamówiony! Sprawdź swoją skrzynkę e-mail.");
     });
   }
 
@@ -95,8 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
-
-      alert(`Ebook "${selectedFile}" został pobrany!`);
     });
   }
 
@@ -127,5 +171,24 @@ document.addEventListener("DOMContentLoaded", function () {
       ticking = true;
     }
   });
+  
+  document.querySelectorAll(".copy-icon").forEach(icon => {
+    icon.addEventListener("click", function () {
+      const textToCopy = this.getAttribute("data-copy");
+      const notification = this.nextElementSibling.nextElementSibling; // Pobiera powiadomienie
+      
+      // Kopiowanie do schowka
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        // Pokazanie powiadomienia
+        notification.classList.remove("opacity-0");
+        notification.classList.add("opacity-100");
 
+        // Ukrycie powiadomienia po 2 sekundach
+        setTimeout(() => {
+          notification.classList.remove("opacity-100");
+          notification.classList.add("opacity-0");
+        }, 2000);
+      }).catch(err => console.error("Błąd kopiowania: ", err));
+    });
+  });
 });
