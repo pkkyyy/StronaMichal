@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Trainer - Zarezerwuj Trening Personalny</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for social media icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Flatpickr CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pl.js"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-900 text-gray-100 font-montserrat">
+  <!-- Navigation -->
+  <nav class="bg-gray-800 bg-opacity-90 shadow fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold text-amber-500">Personal Trainer</a>
+      <div class="space-x-4">
+        <a href="#hero" class="hover:text-amber-400">Home</a>
+        <a href="#about" class="hover:text-amber-400">O mnie</a>
+        <a href="#gallery" class="hover:text-amber-400">Galeria</a>
+        <a href="#contact" class="hover:text-amber-400">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero flex items-center justify-center">
+    <div class="hero-content text-center px-4">
+      <h1 class="text-5xl font-bold mb-4">Zarezerwuj Trening Personalny</h1>
+      <p class="text-xl mb-8">Osiągnij swoje cele zdrowotne i sylwetkowe z nami!</p>
+      <!-- Button to open the reservation modal -->
+      <a href="#" id="openReservation" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded transition">Rezerwuj teraz</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">O mnie</h2>
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+          <img src="images/photo1.jpg" alt="Zdjęcie trenera" class="w-full h-auto rounded shadow">
+        </div>
+        <div class="md:w-1/2 text-gray-200">
+          <p class="text-lg leading-relaxed">
+            Nazywam się [Twoje Imię] i jestem profesjonalnym trenerem personalnym. Moja pasja do zdrowego stylu życia i sportu pozwala mi pomagać ludziom osiągać ich cele. Dzięki wieloletniemu doświadczeniu oferuję indywidualne podejście do każdego klienta, dostosowując treningi do jego potrzeb.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-16 bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Galeria</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="gallery-item">
+          <img src="images/photo1.jpg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
+        </div>
+        <div class="gallery-item">
+          <img src="images/photo2.jpg" alt="Zdjęcie 2" class="w-full h-48 object-cover rounded shadow">
+        </div>
+        <div class="gallery-item">
+          <img src="images/photo3.jpg" alt="Zdjęcie 3" class="w-full h-48 object-cover rounded shadow">
+        </div>
+        <div class="gallery-item">
+          <img src="images/photo4.jpg" alt="Zdjęcie 4" class="w-full h-48 object-cover rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Podopieczni Section (Before & After) -->
+  <section id="podopieczni" class="py-16 bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Podopieczni</h2>
+      <p class="text-center text-gray-200 mb-8">
+        Zobacz efekty naszej współpracy przed i po treningach.
+      </p>
+  
+      <!-- PRZYKŁAD: SZYMON -->
+      <h3 class="text-xl text-amber-400 font-semibold text-center mb-2">Szymon</h3>
+      <div class="compare-container max-w-3xl mx-auto mb-12 relative h-96 overflow-hidden bg-black">
+        <!-- Strefy hover po lewej i prawej -->
+        <div class="hover-left absolute top-0 left-0 w-1/2 h-full z-10"></div>
+        <div class="hover-right absolute top-0 right-0 w-1/2 h-full z-10"></div>
+  
+        <!-- Szeroki kontener z dwiema „połówkami” -->
+        <div class="compare-inner h-full w-[200%] transition-transform duration-700 ease-in-out relative">
+          <!-- Lewa połowa: BEFORE (przed) -->
+          <div 
+            class="left-half h-full w-1/2 float-left bg-cover bg-center"
+            style="background-image: url('images/szymon-before.jpg');">
+          </div>
+          <!-- Prawa połowa: AFTER (po) -->
+          <div 
+            class="right-half h-full w-1/2 float-left bg-cover bg-center"
+            style="background-image: url('images/szymon-after.jpg');">
+          </div>
+        </div>
+      </div>
+  
+      <!-- PRZYKŁAD: MONIKA -->
+      <h3 class="text-xl text-amber-400 font-semibold text-center mb-2">Monika</h3>
+      <div class="compare-container max-w-3xl mx-auto mb-12 relative h-96 overflow-hidden bg-black">
+        <div class="hover-left absolute top-0 left-0 w-1/2 h-full z-10"></div>
+        <div class="hover-right absolute top-0 right-0 w-1/2 h-full z-10"></div>
+  
+        <div class="compare-inner h-full w-[200%] transition-transform duration-700 ease-in-out relative">
+          <div 
+            class="left-half h-full w-1/2 float-left bg-cover bg-center"
+            style="background-image: url('images/monika-before.jpg');">
+          </div>
+          <div 
+            class="right-half h-full w-1/2 float-left bg-cover bg-center"
+            style="background-image: url('images/monika-after.jpg');">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Dodaj więcej, jeśli trzeba -->
+    </div>
+  </section>  
+  
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Kontakt</h2>
+      <div class="flex flex-col items-center">
+        <!-- Social media icons (with phone icon on the left) -->
+        <div id="socialIcons" class="mb-4 flex items-center space-x-6">
+          <!-- Phone icon + tooltip on hover -->
+          <div class="relative group">
+            <i class="fas fa-phone text-2xl text-amber-400 cursor-pointer"></i>
+            <!-- Tooltip that appears on hover -->
+            <span
+              class="absolute bottom-[120%] left-1/2 -translate-x-1/2 bg-amber-700 text-white text-sm p-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300">
+              +48 123 456 789
+            </span>
+          </div>
+          <a href="https://facebook.com/yourprofile" target="_blank" class="text-blue-500 text-2xl hover:text-blue-600">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://twitter.com/yourprofile" target="_blank" class="text-blue-400 text-2xl hover:text-blue-500">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://instagram.com/yourprofile" target="_blank" class="text-pink-500 text-2xl hover:text-pink-600">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Reservation Modal -->
+  <div id="reservationModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <div class="modal-body flex flex-col md:flex-row gap-6">
+        <!-- Left Column: Cennik -->
+        <div class="left-column border border-gray-700 rounded p-4 bg-black-700">
+          <h2 class="text-2xl font-bold text-amber-600 mb-4">Cennik</h2>
+          <div class="space-y-4" id="pricingCardsContainer">
+            <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
+                 data-title="Trening Jednorazowy" 
+                 data-price="100" 
+                 data-description="Idealny na początek lub próbny trening." 
+                 data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+              <h3 class="text-xl font-bold">Trening Jednorazowy</h3>
+              <p class="text-lg text-amber-600">100 PLN</p>
+              <p class="text-sm">Idealny na początek lub próbny trening.</p>
+            </div>
+            <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
+                 data-title="Pakiet 5 Treningów" 
+                 data-price="450" 
+                 data-description="Optymalny wybór dla regularnych treningów." 
+                 data-video="https://www.youtube.com/embed/9bZkp7q19f0">
+              <h3 class="text-xl font-bold">Pakiet 5 Treningów</h3>
+              <p class="text-lg text-amber-600">450 PLN</p>
+              <p class="text-sm">Optymalny wybór dla regularnych treningów.</p>
+            </div>
+            <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
+                 data-title="Pakiet 10 Treningów" 
+                 data-price="850" 
+                 data-description="Najlepsza oferta dla pełnej metamorfozy." 
+                 data-video="https://www.youtube.com/embed/3GwjfUFyY6M">
+              <h3 class="text-xl font-bold">Pakiet 10 Treningów</h3>
+              <p class="text-lg text-amber-600">850 PLN</p>
+              <p class="text-sm">Najlepsza oferta dla pełnej metamorfozy.</p>
+            </div>
+            <div class="bg-[#262626] p-4 rounded shadow pricing-card" 
+                 data-title="Pakiet 15 Treningów" 
+                 data-price="1850" 
+                 data-description="Kompleksowy pakiet treningów dla pełnej transformacji." 
+                 data-video="https://www.youtube.com/embed/OVr5M9uLJ7Y">
+              <h3 class="text-xl font-bold">Pakiet 15 Treningów</h3>
+              <p class="text-lg text-amber-600">1850 PLN</p>
+              <p class="text-sm">Kompleksowy pakiet treningów dla pełnej transformacji.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Ebooks Section -->
+        <div class="right-column border border-gray-700 rounded p-4 bg-black-700">
+          <h2 class="text-2xl font-bold text-amber-600 mb-4">Pobierz Ebook</h2>
+          <div class="bg-[#262626] p-6 rounded shadow">
+            <form id="ebookForm">
+              <div class="mb-4">
+                <label for="ebookTitle" class="block text-sm font-medium mb-1">Wybierz Ebook:</label>
+                <select id="ebookTitle" name="ebookTitle" class="w-full border border-gray-300 text-gray-600 rounded px-3 py-2" required>
+                  <option value="ebook1" data-file="ebook1.pdf">Ebook 1: Trening dla początkujących</option>
+                  <option value="ebook2" data-file="ebook2.pdf">Ebook 2: Zaawansowane techniki</option>
+                  <option value="ebook3" data-file="ebook3.pdf">Ebook 3: Dieta i zdrowy styl życia</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label for="emailEbook" class="block text-sm font-medium mb-1">Twój Email:</label>
+                <input type="email" id="emailEbook" name="email" class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600" placeholder="twoj@email.com" required>
+              </div>
+              <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded">Pobierz Ebook</button>
+            </form>
+            <div id="ebookResult" class="mt-4 text-center text-amber-600 font-semibold"></div>
+            <!-- Dodaj przycisk do pobierania bez maila -->
+            <button id="downloadWithoutEmail" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded mt-4">Pobierz bez podawania maila</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-800">
+    <div class="container mx-auto px-4 text-center text-gray-400">
+      <p>&copy; 2025 Paweł Kurantowicz. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <!-- External JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
