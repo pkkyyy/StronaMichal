@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pricingContainer.classList.add(
       "w-full", "md:w-2/5", "lg:w-1/3",
       "border", "border-gray-700", "rounded", "p-6", 
-      "bg-[#1f2937]", "h-full", "overflow-hidden", "flex", "flex-col"
+      "bg-[#171717]", "h-full", "overflow-hidden", "flex", "flex-col"
     );    
     const pricingHeading = document.createElement("h2");
     pricingHeading.className = "text-2xl font-bold text-amber-600 mb-4";
@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     pricingCardsContainer.className = "space-y-4 flex-grow overflow-y-auto h-full";
     pricingContainer.appendChild(pricingCardsContainer);
 
-    // New pricing data with additional options and extra details
     const pricingCards = [
       { title: "Trening Jednorazowy", price: "100", description: "Idealny na początek lub próbny trening.", details: "Zawiera rozgrzewkę, trening podstawowy, cardio i stretching." },
       { title: "Pakiet 5 Treningów", price: "450", description: "Optymalny wybór dla regularnych treningów.", details: "5 sesji z indywidualnym planem oraz konsultacją dietetyczną." },
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
       { title: "Pakiet Premium", price: "2500", description: "Oferta premium dla wymagających.", details: "Zindywidualizowany plan, konsultacja żywieniowa i wsparcie trenera na każdym etapie." }
     ];
 
-    // Create pricing cards and attach data attributes for expansion
     pricingCards.forEach(card => {
       const cardDiv = document.createElement("div");
       cardDiv.className = "bg-[#262626] p-4 rounded shadow pricing-card cursor-pointer";
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
       pricingCardsContainer.appendChild(cardDiv);
     });
 
-    // Accordion behavior for pricing cards
     let openCard = null;
     document.querySelectorAll(".pricing-card").forEach(card => {
       card.addEventListener("click", function () {
@@ -60,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const description = this.getAttribute("data-description");
           const details = this.getAttribute("data-details");
           expandedInfo = document.createElement("div");
-          expandedInfo.className = "expanded-info mt-2 p-2 bg-[#424141] rounded shadow transition-all duration-300 overflow-hidden";
+          expandedInfo.className = "expanded-info mt-2 p-2 bg-[#171717] rounded shadow transition-all duration-300 overflow-hidden";
           expandedInfo.style.maxHeight = "0";
           expandedInfo.innerHTML = `
             <p><strong>Opis:</strong> ${description}</p>
@@ -78,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
-
   }
 
   // --- Ebooks Section (Grid Layout with Uniform Images & Button Placement) ---
@@ -87,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ebooksContainer.classList.add(
       "w-full", "md:w-3/4", "lg:w-2/3",
       "border", "border-gray-700", "rounded", "p-6", 
-      "bg-[#1f2937]", "h-full", "overflow-hidden", "flex", "flex-col"
+      "bg-[#171717]", "h-full", "overflow-hidden", "flex", "flex-col"
     );
     
     const ebooksHeading = document.createElement("h2");
@@ -95,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ebooksHeading.textContent = "Pobierz Ebook";
     ebooksContainer.appendChild(ebooksHeading);
 
-    // Create grid container for ebook cards (4 per row on md+ screens)
     const ebookInner = document.createElement("div");
     ebookInner.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 flex-grow overflow-y-auto h-full";
     ebooksContainer.appendChild(ebookInner);
@@ -129,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
         calories: "220", 
         link: "https://example.com/buy-ebook4" 
       },
-      // Additional ebooks trigger scrollbar
       { 
         title: "Ebook 5: Siła i masa", 
         image: "images/ebook5.jpg", 
@@ -165,14 +159,12 @@ document.addEventListener("DOMContentLoaded", function () {
         calories: "1500", 
         link: "https://example.com/buy-ebook5" 
       }
-      
-
     ];
 
     ebooksData.forEach(ebook => {
       const ebookCard = document.createElement("div");
       ebookCard.className = "ebook-card bg-[#262626] p-4 rounded shadow flex flex-col";
-      ebookCard.setAttribute("data-calories", ebook.calories); // Add data-calories for filtering
+      ebookCard.setAttribute("data-calories", ebook.calories);
       
       ebookCard.innerHTML = `
         <img src="${ebook.image}" alt="${ebook.title}" class="w-full rounded mb-2">
@@ -183,8 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
       
       ebookInner.appendChild(ebookCard);
-    });    
-
+    });
   }
 
   // --- Existing Code for Lightbox, Modal Handling, Smooth Scrolling, etc. ---
@@ -248,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (openModalBtn && modal && closeModalBtn) {
     openModalBtn.addEventListener("click", function (event) {
-      event.preventDefault();
+      event.preventDefault(); // Prevent the default link behavior
       modal.style.display = "flex";
       document.body.style.overflow = "hidden";
     });
@@ -306,7 +297,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const ebookInput = document.getElementById("caloriesFilter");
   const ebookInner = document.querySelector("#ebooksContainer div.grid");
   
-  // Function to filter ebooks based on input
   function filterEbooks() {
     const filterValue = parseInt(ebookInput.value, 10);
     const ebookCards = ebookInner.querySelectorAll(".ebook-card");
@@ -314,7 +304,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ebookCards.forEach(card => {
       const ebookCalories = parseInt(card.getAttribute("data-calories"), 10);
 
-      // Show only ebooks within ±50 calories of input
       if (isNaN(filterValue) || Math.abs(ebookCalories - filterValue) <= 50) {
         card.style.display = "block";
       } else {
@@ -323,6 +312,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Add event listener for real-time filtering
   ebookInput.addEventListener("input", filterEbooks);
 });

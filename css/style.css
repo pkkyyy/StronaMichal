@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 :root {
-  --primary: #0f0f0f;
+  --primary: #050505;
   --secondary: #262626;
   --accent: #FFCA28;
   --light: #f0f0f0;
@@ -53,8 +53,6 @@ button:hover {
   height: 100vh;
 }
 
-
-
 .hero::before {
   content: '';
   position: absolute;
@@ -92,17 +90,15 @@ button:hover {
   filter: brightness(1.1);
 }
 
-/* Increase modal content size */
 .modal-content {
   width: 95%;
   max-width: 1500px;
-  height: 90vh; /* Ensures modal does not shrink */
+  height: 90vh;
   max-height: 90vh;
-  overflow: hidden; /* Prevents internal content from resizing modal */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-
 
 .modal {
   display: none;
@@ -126,13 +122,13 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 85vh; /* Forces both sections to be the same height */
+  height: 85vh;
 }
 
 @media (min-width: 768px) {
   .modal-body {
     flex-direction: row;
-    height: 85vh; /* Forces equal height inside modal */
+    height: 85vh;
   }
 }
 
@@ -142,40 +138,94 @@ button:hover {
   border-radius: 0.25rem;
 }
 
+/* New Compare Container for interactive composite images */
 .compare-container {
+  display: flex;
   position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
   overflow: hidden;
-  background: #000; 
+  margin: 0 auto;
+  transition: all 0.3s ease;
 }
-
-.compare-inner {
+.compare-half {
+  width: 50%;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+.compare-half .image {
   width: 100%;
   height: 100%;
-  transform: translateX(-25%);
-  transition: transform 0.7s ease;
-}
-
-.left-half,
-.right-half {
-  float: left;
-  width: 50%;
-  height: 100%;
+  background-size: 100% 100%; /* Force image to always exactly fill the container */
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  transition: none; /* Ensure no transition on the image itself */
 }
 
-.hover-left,
-.hover-right {
-  cursor: pointer;
+.compare-half:hover {
+  width: 100%;
+}
+.compare-container:hover .compare-half:not(:hover) {
+  width: 0;
+}
+.compare-label {
+  position: absolute;
+  top: 20px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+.compare-label.before-label {
+  left: 20px;
+}
+.compare-label.after-label {
+  right: 20px;
 }
 
-.hover-left:hover ~ .compare-inner {
-  transform: translateX(0%);
+.ebook-card img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
 }
 
-.hover-right:hover ~ .compare-inner {
-  transform: translateX(-50%);
+#about {
+  position: relative;
+  padding-bottom: 150px;
+}
+
+.custom-shape-divider-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.custom-shape-divider-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+.custom-shape-divider-bottom .shape-fill {
+  fill: #dee3e0;
+  stroke: none;
+}
+
+@media (max-width: 640px) {
+  #about {
+    padding-bottom: 150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .compare-container {
+    height: 70vh;
+  }
 }
 
 footer p {
@@ -185,23 +235,19 @@ footer p {
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: #1a1a1a;
   border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #92400e, #f59e0b);
   border-radius: 5px;
   animation: pulseScrollbar 2s infinite ease-in-out;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #78350f, #d97706);
   animation: none;
 }
-
 @keyframes pulseScrollbar {
   0% {
     transform: scaleY(1);
@@ -215,10 +261,4 @@ footer p {
     transform: scaleY(1);
     opacity: 1;
   }
-}
-
-.ebook-card img {
-  width: 100%;
-  height: 10rem; /* fixed height (adjust as needed) */
-  object-fit: cover;
 }

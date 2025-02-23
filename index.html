@@ -24,6 +24,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <!-- Lightbox dla powiększania zdjęć -->
 <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
   <span id="close-lightbox" class="absolute top-5 right-5 text-white text-3xl cursor-pointer">&times;</span>
@@ -32,9 +33,9 @@
   <button id="next-image" class="absolute right-5 text-white text-4xl cursor-pointer hidden">&rarr;</button>
 </div>
 
-<body class="bg-gray-900 text-gray-100 font-montserrat">
+<body class="bg-[#050505] text-gray-100 font-montserrat">
   <!-- Navigation -->
-  <nav class="bg-gray-800 bg-opacity-90 shadow fixed top-0 left-0 right-0 z-50">
+  <nav class="bg-[#171717] bg-opacity-90 shadow fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="#" class="text-xl font-bold text-amber-500">Michał Saliński</a>
       <div class="space-x-4">
@@ -57,9 +58,9 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16 bg-gray-800">
+  <section id="about" class="py-16 bg-[#050505] relative">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">O mnie</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">O MNIE</h2>
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="md:w-1/2">
           <img src="images/IMG_7078.jpeg" alt="Zdjęcie trenera" class="w-full h-auto rounded shadow">
@@ -71,12 +72,18 @@
         </div>
       </div>
     </div>
+    <!-- Custom Wave Divider -->
+    <div class="custom-shape-divider-bottom">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.42C203.33,71.34,0,12.66,0,12.66V120H1200V12.66S987.66,28.58,865.05,7.84C742.44-12.9,600,15.63,600,15.63S491.45-1.8,321.39,56.42Z" class="shape-fill"></path>
+      </svg>
+    </div>
   </section>
-  
+
   <!-- Gallery Section -->
-  <section id="gallery" class="py-16 bg-gray-900">
+  <section id="gallery" class="py-16 bg-[#dee3e0]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Galeria</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">GALERIA</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div class="gallery-item">
           <img src="images/IMG_7117.jpeg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
@@ -94,42 +101,86 @@
     </div>
   </section>
   
-  <!-- Podopieczni Section (Before & After) -->
-  <section id="podopieczni" class="py-16 bg-gray-800">
+  <!-- Podopieczni Section (Composite with Hover Reveal) -->
+  <section id="podopieczni" class="py-16 bg-[#dee3e0]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Podopieczni</h2>
-      <p class="text-center text-gray-200 mb-8">
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">PODOPIECZNI</h2>
+      <p class="text-center text-gray-900 mb-8">
         Zobacz efekty naszej współpracy przed i po treningach.
       </p>
-  
-      <!-- PRZYKŁAD: SZYMON -->
-      <h3 class="text-xl text-amber-400 font-semibold text-center mb-2">Szymon</h3>
-      <div class="compare-container max-w-3xl mx-auto mb-12 relative h-96 overflow-hidden bg-black">
-        <div class="hover-left absolute top-0 left-0 w-1/2 h-full z-10"></div>
-        <div class="hover-right absolute top-0 right-0 w-1/2 h-full z-10"></div>
-        <div class="compare-inner h-full w-[200%] transition-transform duration-700 ease-in-out relative">
-          <div class="left-half h-full w-1/2 float-left bg-cover bg-center" style="background-image: url('images/szymon-before.jpg');"></div>
-          <div class="right-half h-full w-1/2 float-left bg-cover bg-center" style="background-image: url('images/szymon-after.jpg');"></div>
+
+      <!-- New grid container for compare items -->
+      <div class="podopieczni-grid grid grid-cols-2 gap-4">
+        <!-- Compare item 1 -->
+        <div class="podopieczni-item">
+          <h3 class="text-center mt-2 text-amber-900">SZYMON</h3>
+          <div class="compare-container h-80 object-cover rounded shadow">
+            <div class="compare-half compare-half-left">
+              <div class="image" style="background-image: url('images/szymon-before.jpg');"></div>
+            </div>
+            <div class="compare-half compare-half-right">
+              <div class="image" style="background-image: url('images/szymon-after.jpg');"></div>
+            </div>
+            <div class="compare-label before-label">PRZED</div>
+            <div class="compare-label after-label">PO</div>
+          </div>
         </div>
-      </div>
-  
-      <!-- PRZYKŁAD: MONIKA -->
-      <h3 class="text-xl text-amber-400 font-semibold text-center mb-2">Monika</h3>
-      <div class="compare-container max-w-3xl mx-auto mb-12 relative h-96 overflow-hidden bg-black">
-        <div class="hover-left absolute top-0 left-0 w-1/2 h-full z-10"></div>
-        <div class="hover-right absolute top-0 right-0 w-1/2 h-full z-10"></div>
-        <div class="compare-inner h-full w-[200%] transition-transform duration-700 ease-in-out relative">
-          <div class="left-half h-full w-1/2 float-left bg-cover bg-center" style="background-image: url('images/monika-before.jpg');"></div>
-          <div class="right-half h-full w-1/2 float-left bg-cover bg-center" style="background-image: url('images/monika-after.jpg');"></div>
+
+        <!-- Compare item 2 -->
+        <div class="podopieczni-item">
+          <h3 class="text-center mt-2 text-amber-900">MONIKA</h3>
+          <div class="compare-container h-80 object-cover rounded shadow">
+            <div class="compare-half compare-half-left">
+              <div class="image" style="background-image: url('images/monika-before.jpg');"></div>
+            </div>
+            <div class="compare-half compare-half-right">
+              <div class="image" style="background-image: url('images/monika-after.jpg');"></div>
+            </div>
+            <div class="compare-label before-label">PRZED</div>
+            <div class="compare-label after-label">PO</div>
+          </div>
         </div>
+
+        <!-- Compare item 3 (new) -->
+        <div class="podopieczni-item">
+          <h3 class="text-center mt-2 text-amber-900">Extra 1</h3>
+          <div class="compare-container h-80 object-cover rounded shadow">
+            <div class="compare-half compare-half-left">
+              <div class="image" style="background-image: url('images/extra1-before.jpg');"></div>
+            </div>
+            <div class="compare-half compare-half-right">
+              <div class="image" style="background-image: url('images/extra1-after.jpg');"></div>
+            </div>
+            <div class="compare-label before-label">PRZED</div>
+            <div class="compare-label after-label">PO</div>
+          </div>
+        </div>
+
+        <!-- Compare item 4 (new) -->
+        <div class="podopieczni-item">
+          <h3 class="text-center mt-2 text-amber-900">Extra 2</h3>
+          <div class="compare-container h-80 object-cover rounded shadow">
+            <div class="compare-half compare-half-left">
+              <div class="image" style="background-image: url('images/extra2-before.jpg');"></div>
+            </div>
+            <div class="compare-half compare-half-right">
+              <div class="image" style="background-image: url('images/extra2-after.jpg');"></div>
+            </div>
+            <div class="compare-label before-label">PRZED</div>
+            <div class="compare-label after-label">PO</div>
+          </div>
+          
+        </div>
+        
+        <!-- Add more .podopieczni-item blocks as needed -->
       </div>
     </div>
   </section>  
   
   <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-900">
+  <section id="contact" class="py-16 bg-[#dee3e0]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Kontakt</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">KONTAKT</h2>
       <div class="flex flex-col items-center">
         <div id="socialIcons" class="mb-4 flex items-center space-x-6">
           <div class="relative group">
@@ -180,7 +231,7 @@
   </div>  
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-800">
+  <footer class="py-6 bg-[#171717]">
     <div class="container mx-auto px-4 text-center text-gray-400">
       <p>&copy; 2025 Paweł Kurantowicz. Wszelkie prawa zastrzeżone.</p>
     </div>
