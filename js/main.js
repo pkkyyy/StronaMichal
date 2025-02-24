@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  const smiley = document.querySelector(".smiley-icon");
+  const infoBox = document.querySelector(".info-box");
+
+  if (smiley && infoBox) { // Ensure elements exist before attaching event listeners
+    smiley.addEventListener("click", function (event) {
+      event.stopPropagation(); // Prevent closing when clicking the smiley itself
+      infoBox.classList.toggle("visible");
+      smiley.innerHTML = infoBox.classList.contains("visible") ? "😃" : "😊";
+    });
+
+    // Close the info box when clicking anywhere outside of it
+    document.addEventListener("click", function (event) {
+      if (!infoBox.contains(event.target) && !smiley.contains(event.target)) {
+        infoBox.classList.remove("visible");
+        smiley.innerHTML = "😊"; // Reset back to default icon
+      }
+    });
+  } else {
+    console.error("Smiley face or info box not found in the document.");
+  }
+  
   // --- Pricing Section (with Accordion Functionality) ---
   const pricingContainer = document.getElementById("pricingContainer");
   if (pricingContainer) {
@@ -313,4 +335,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   ebookInput.addEventListener("input", filterEbooks);
+
+  let lastScrollTop = 0;
+  const nav = document.querySelector("nav");
+  const footer = document.querySelector("footer");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      nav.style.transform = "translateY(-100%)";
+      footer.style.transform = "translateY(0)";
+    } else {
+      nav.style.transform = "translateY(0)";
+      footer.style.transform = "translateY(100%)";
+    }
+    lastScrollTop = scrollTop;
+  });
 });
