@@ -116,7 +116,15 @@ button:hover {
   right: 1rem;
   font-size: 2rem;
   cursor: pointer;
+  z-index: 20;
 }
+
+@media (max-width: 768px) {
+  .modal-close {
+    top: 3rem;
+  }
+}
+
 
 .modal-body {
   display: flex;
@@ -372,4 +380,78 @@ footer {
 #contact {
   min-height: 300px; /* Adjust as necessary */
   padding-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+  #pricingContainer,
+  #ebooksContainer {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-tabs {
+    position: sticky;
+    top: 0;
+    background: #171717; /* a solid background */
+    z-index: 10;
+    min-height: 8rem; /* as you set */
+    display: flex;
+    align-items: center;
+  }
+  .active-tab {
+    background-color: #FFCA28; /* adjust to your active color */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .compare-container {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+}
+
+.modal-open nav,
+.modal-open footer {
+  display: none !important;
+}
+
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
+  display: none; /* domyślnie schowany, pokaże się przez JS */
+}
+.cookie-consent p {
+  margin: 0 0 0.5rem;
+}
+.cookie-consent button {
+  margin: 0 0.5rem;
+  background: var(--accent);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0.25rem;
 }

@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "border", "border-gray-700", "rounded", "p-6", 
       "bg-[#171717]", "h-full", "overflow-hidden", "flex", "flex-col"
     );    
+
+    
     const pricingHeading = document.createElement("h2");
     pricingHeading.className = "text-2xl font-bold text-amber-600 mb-4";
     pricingHeading.textContent = "Cennik";
@@ -213,13 +215,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openLightbox(index) {
     currentIndex = index;
-    lightboxImg.src = galleryImages[currentIndex].src;
+    let imageSrc = galleryImages[currentIndex].src;
+    // Replace '_resized' in the filename to load the full‑size image
+    let fullSizeSrc = imageSrc.replace('_resized', '');
+    lightboxImg.src = fullSizeSrc;
     lightbox.classList.remove("hidden");
     document.body.style.overflow = "hidden";
-
+  
     prevBtn.style.display = currentIndex === 0 ? "none" : "block";
     nextBtn.style.display = currentIndex === galleryImages.length - 1 ? "none" : "block";
   }
+  
 
   function closeLightboxFunc() {
     lightbox.classList.add("hidden");
@@ -264,20 +270,23 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault(); // Prevent the default link behavior
       modal.style.display = "flex";
       document.body.style.overflow = "hidden";
+      document.body.classList.add("modal-open");
     });
-
+  
     closeModalBtn.addEventListener("click", function () {
       modal.style.display = "none";
       document.body.style.overflow = "";
+      document.body.classList.remove("modal-open");
     });
-
+  
     window.addEventListener("click", function (event) {
       if (event.target === modal) {
         modal.style.display = "none";
         document.body.style.overflow = "";
+        document.body.classList.remove("modal-open");
       }
     });
-  }
+  }  
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
@@ -350,5 +359,80 @@ document.addEventListener("DOMContentLoaded", function () {
       footer.style.transform = "translateY(100%)";
     }
     lastScrollTop = scrollTop;
+  });
+
+  // Only run this on mobile
+  if (window.innerWidth <= 768) {
+    const tabPricing = document.getElementById('tabPricing');
+    const tabEbooks = document.getElementById('tabEbooks');
+    const pricingContainer = document.getElementById('pricingContainer');
+    const ebooksContainer = document.getElementById('ebooksContainer');
+    
+    // Initially show only the pricing section on mobile
+    pricingContainer.style.display = 'block';
+    ebooksContainer.style.display = 'none';
+    tabPricing.classList.add('active-tab');
+    tabEbooks.classList.remove('active-tab');
+  
+    tabPricing.addEventListener('click', () => {
+      pricingContainer.style.display = 'block';
+      ebooksContainer.style.display = 'none';
+      tabPricing.classList.add('active-tab');
+      tabEbooks.classList.remove('active-tab');
+    });
+  
+    tabEbooks.addEventListener('click', () => {
+      pricingContainer.style.display = 'none';
+      ebooksContainer.style.display = 'block';
+      tabEbooks.classList.add('active-tab');
+      tabPricing.classList.remove('active-tab');
+    });
+  }  
+  
+  if (window.innerWidth <= 768) {
+    const compareContainers = document.querySelectorAll('.compare-container');
+    compareContainers.forEach(container => {
+      let activeHalf = null;
+      const halves = container.querySelectorAll('.compare-half');
+      halves.forEach(half => {
+        ['click', 'touchstart'].forEach(eventType => {
+          half.addEventListener(eventType, function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (activeHalf === this) {
+              // Tapped the same half again: reset to 50/50
+              halves.forEach(h => h.style.width = '50%');
+              activeHalf = null;
+            } else {
+              // Expand the tapped half and collapse the other
+              halves.forEach(h => h.style.width = (h === this ? '100%' : '0'));
+              activeHalf = this;
+            }
+          });
+        });
+      });
+    });
+  } 
+
+  // Obsługa banera cookies
+  const cookieConsent = document.getElementById("cookieConsent");
+  const acceptCookies = document.getElementById("acceptCookies");
+  const rejectCookies = document.getElementById("rejectCookies");
+
+  // Jeśli wybór już był dokonany, nie pokazujemy banera
+  if (localStorage.getItem("cookieConsent")) {
+    cookieConsent.style.display = "none";
+  } else {
+    cookieConsent.style.display = "block";
+  }
+
+  acceptCookies.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    cookieConsent.style.display = "none";
+  });
+
+  rejectCookies.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    cookieConsent.style.display = "none";
   });
 });

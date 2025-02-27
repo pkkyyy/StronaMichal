@@ -93,13 +93,13 @@
       <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">GALERIA</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div class="gallery-item">
-          <img src="images/IMG_7117.jpeg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
+          <img src="images/IMG_7117_resized.jpeg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
         </div>
         <div class="gallery-item">
-          <img src="images/IMG_7131.jpeg" alt="Zdjęcie 2" class="w-full h-48 object-cover rounded shadow">
+          <img src="images/IMG_7131_resized.jpeg" alt="Zdjęcie 2" class="w-full h-48 object-cover rounded shadow">
         </div>
         <div class="gallery-item">
-          <img src="images/IMG_7151.jpeg" alt="Zdjęcie 3" class="w-full h-48 object-cover rounded shadow">
+          <img src="images/IMG_7151_resized.jpeg" alt="Zdjęcie 3" class="w-full h-48 object-cover rounded shadow">
         </div>
         <div class="gallery-item">
           <img src="images/photo4.jpg" alt="Zdjęcie 4" class="w-full h-48 object-cover rounded shadow">
@@ -117,11 +117,11 @@
       </p>
 
       <!-- New grid container for compare items -->
-      <div class="podopieczni-grid grid grid-cols-2 gap-4">
+      <div class="podopieczni-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
         <!-- Compare item 1 -->
         <div class="podopieczni-item">
           <h3 class="text-center mt-2 text-amber-900">SZYMON</h3>
-          <div class="compare-container h-80 object-cover rounded shadow">
+          <div class="compare-container h-[32rem] object-cover rounded shadow">
             <div class="compare-half compare-half-left">
               <div class="image" style="background-image: url('images/szymon-before.jpg');"></div>
             </div>
@@ -136,7 +136,7 @@
         <!-- Compare item 2 -->
         <div class="podopieczni-item">
           <h3 class="text-center mt-2 text-amber-900">MONIKA</h3>
-          <div class="compare-container h-80 object-cover rounded shadow">
+          <div class="compare-container h-[32rem] object-cover rounded shadow">
             <div class="compare-half compare-half-left">
               <div class="image" style="background-image: url('images/monika-before.jpg');"></div>
             </div>
@@ -151,7 +151,7 @@
         <!-- Compare item 3 (new) -->
         <div class="podopieczni-item">
           <h3 class="text-center mt-2 text-amber-900">Extra 1</h3>
-          <div class="compare-container h-80 object-cover rounded shadow">
+          <div class="compare-container h-[32rem] object-cover rounded shadow">
             <div class="compare-half compare-half-left">
               <div class="image" style="background-image: url('images/extra1-before.jpg');"></div>
             </div>
@@ -166,7 +166,7 @@
         <!-- Compare item 4 (new) -->
         <div class="podopieczni-item">
           <h3 class="text-center mt-2 text-amber-900">Extra 2</h3>
-          <div class="compare-container h-80 object-cover rounded shadow">
+          <div class="compare-container h-[32rem] object-cover rounded shadow">
             <div class="compare-half compare-half-left">
               <div class="image" style="background-image: url('images/extra2-before.jpg');"></div>
             </div>
@@ -223,15 +223,21 @@
   <div id="reservationModal" class="modal">
     <div class="modal-content">
       <span id="modalClose" class="modal-close">&times;</span>
+      <!-- Tabs for mobile (hidden on larger screens) -->
+      <div class="modal-tabs flex md:hidden">
+        <button id="tabPricing" class="modal-tab flex-1 py-2 bg-gray-700 text-white">Cennik</button>
+        <button id="tabEbooks" class="modal-tab flex-1 py-2 bg-gray-700 text-white">Ebooki</button>
+      </div>
       <div class="modal-body flex flex-col md:flex-row gap-6">
-        <!-- Left Column: Cennik (Dynamic) -->
+        <!-- Left Column: Cennik -->
         <div id="pricingContainer"></div>
-        <!-- Right Column: Ebooks (Dynamic) -->
+        <!-- Right Column: Ebooks -->
         <div id="ebooksContainer">
-          <div class="mb-4">
+          <!-- Optional: Make ebooks container scrollable on mobile -->
+          <div class="mb-4 md:mb-0">
             <label for="caloriesFilter" class="block text-sm font-medium mb-1">Filtruj po Kaloriach:</label>
             <input type="number" id="caloriesFilter" class="w-full border border-gray-300 text-gray-600 rounded px-3 py-2" placeholder="Podaj wartość kalorii">
-          </div>          
+          </div> 
         </div>
       </div>
     </div>
@@ -248,7 +254,7 @@
   <script src="js/main.js"></script>
 
   <!-- Smiley Face Icon -->
-  <div class="smiley-icon fixed bottom-5 right-5 text-4xl cursor-pointer">
+  <div class="smiley-icon fixed bottom-5 right-5 text-base cursor-pointer">
     😊
   </div>
 
@@ -258,5 +264,11 @@
     <p>pawkurantowicz@gmail.com</p>
   </div>
 
+
+  <div id="cookieConsent" class="cookie-consent">
+    <p>Nasza strona używa cookies, aby zapewnić najlepsze doświadczenia. Czy akceptujesz?</p>
+    <button id="acceptCookies">Akceptuję</button>
+    <button id="rejectCookies">Odrzuć</button>
+  </div>
 </body>
 </html>
