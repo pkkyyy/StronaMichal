@@ -455,3 +455,8 @@ footer {
   cursor: pointer;
   border-radius: 0.25rem;
 }
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #f59e0b #1a1a1a; /* thumb color, track color */
+}
