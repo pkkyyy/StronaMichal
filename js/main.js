@@ -76,10 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
       { title: "Tygodniowy Plan Żywieniowy", price: "100", description: "Dieta szyta na miarę Twoich potrzeb.", details: "Jadłospis z uwzględnieniem alergii, preferencji i trybu życia." }
     ];
 
-    // Define which cards should be pinned
     const pinnedTitles = ["Pierwszy Trening", "Indywidualny Plan Treningowy", "Tygodniowy Plan Żywieniowy"];
     
-    // Sort cards - pinned cards first
     const sortedCards = [...pricingCards].sort((a, b) => {
       const aIsPinned = pinnedTitles.includes(a.title);
       const bIsPinned = pinnedTitles.includes(b.title);
@@ -89,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return 0;
     });
 
-    // Create cards in the sorted order
+
     sortedCards.forEach(card => {
       const cardDiv = document.createElement("div");
       cardDiv.className = "bg-[#262626] p-4 rounded shadow pricing-card cursor-pointer";
@@ -98,12 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
       cardDiv.setAttribute("data-description", card.description);
       cardDiv.setAttribute("data-details", card.details);
       
-      // If this is a pinned card, add the appropriate attributes right away
       if (pinnedTitles.includes(card.title)) {
         cardDiv.setAttribute("data-pinned", "true");
         cardDiv.classList.add("free-pricing-card", "glow-effect");
         
-        // Create the badge with appropriate text
         const badge = document.createElement("div");
         badge.className = "free-badge";
         
@@ -181,39 +177,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const ebooksData = [
       { 
-        title: "Ebook 1: Trening dla początkujących", 
+        title: "Smak, który wciąga, zdrowie, które zostaje!", 
         image: "images/E-book_1700_kcal.jpg", 
-        description: "Poznaj podstawy treningu i rozpocznij swoją przygodę z fitnessem.", 
+        description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
         calories: "1700", 
         link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-1700-kcal-64b" 
       },
       { 
-        title: "Ebook 2: Zaawansowane techniki", 
+        title: "Smak, który wciąga, zdrowie, które zostaje!", 
         image: "images/E-book_2000_kcal.jpg", 
-        description: "Zaawansowane metody treningowe dla wymagających.", 
+        description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
         calories: "2000", 
         link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-2000-kcal-DuH" 
       },
       { 
-        title: "Ebook 3: Dieta i zdrowy styl życia", 
+        title: "Smak, który wciąga, zdrowie, które zostaje!", 
         image: "images/E-book_2700_kcal.jpg", 
-        description: "Poradnik zdrowego odżywiania oraz stylu życia.", 
+        description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
         calories: "2700", 
         link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-2700-kcal-rWD" 
       },
       { 
-        title: "Ebook 4: Cardio Masterclass", 
+        title: "Smak, który wciąga, zdrowie, które zostaje!", 
         image: "images/E-book_2300_kcal.jpg", 
-        description: "Intensywne treningi cardio dla wytrzymałości.", 
+        description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
         calories: "2300", 
         link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-2300-kcal-MZM" 
       },
       { 
-        title: "Ebook 5: Siła i masa", 
-        image: "images/ebook5.jpg", 
-        description: "Jak zbudować masę mięśniową efektywnie.", 
-        calories: "280", 
-        link: "https://example.com/buy-ebook5" 
+        title: "Smak, który wciąga, zdrowie, które zostaje!", 
+        image: "images/E-book_2300_kcal.jpg", 
+        description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
+        calories: "2300", 
+        link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-2300-kcal-MZM" 
       }
     ];
 
