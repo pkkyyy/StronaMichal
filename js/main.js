@@ -203,13 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
         description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
         calories: "2300", 
         link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-2300-kcal-MZM" 
-      },
-      { 
-        title: "Smak, który wciąga, zdrowie, które zostaje!", 
-        image: "images/E-book_2300_kcal.jpg", 
-        description: "✅Proste i szybkie przepisy<br>✅Pełnowartościowe posiłki<br>✅Idealne dla osób dbających o zdrową dietę.", 
-        calories: "2300", 
-        link: "https://www.naffy.io/michal-salinski/plan-zywieniowy-2300-kcal-MZM" 
       }
     ];
 
