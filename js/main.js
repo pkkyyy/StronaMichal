@@ -67,23 +67,62 @@ document.addEventListener("DOMContentLoaded", function () {
     pricingContainer.appendChild(pricingCardsContainer);
 
     const pricingCards = [
-      { title: "Trening Jednorazowy", price: "darmowy", description: "Jeżeli nie wiesz czy to dla ciebie wychodzę na przeciw i za pierwszy trening nic nie płacisz ", details: "Zawiera rozgrzewkę, trening podstawowy, cardio i stretching." },
+      { title: "Pierwszy Trening", price: "0", description: "Jeżeli nie wiesz, czy to dla Ciebie, wychodzę naprzeciw – za pierwszy trening nic nie płacisz!", details: "Zawiera 60-minutowy trening, kompleksową konsultację, wyznaczenie celów oraz spersonalizowany plan treningowy." },
+      { title: "Trening Jednorazowy", price: "120", description: "Pojedyncza sesja treningowa.", details: "Rozgrzewka, trening funkcjonalny, cardio, stretching." },
       { title: "Pakiet 4 Treningów", price: "440", description: "Optymalny wybór dla regularnych treningów.", details: "4 sesji z indywidualnym planem oraz konsultacją dietetyczną." },
-      { title: "Pakiet 8 Treningów", price: "800", description: "Najlepsza oferta dla pełnej metamorfozy.", details: "8 sesji, spersonalizowany plan, konsultacja dietetyczna oraz monitorowanie postępów." },
-      { title: "Pakiet 12 Treningów", price: "1080", description: "Kompleksowy pakiet treningów dla pełnej transformacji.", details: "12 sesji, pełna transformacja, plan żywieniowy i ocena postępów." }
+      { title: "Pakiet 8 Treningów", price: "800", description: "Intensywna praca nad metamorfozą.", details: "8 sesji, spersonalizowany plan, konsultacja dietetyczna oraz monitorowanie postępów." },
+      { title: "Pakiet 12 Treningów", price: "1080", description: "Kompleksowa transformacja ciała.", details: "12 sesji, pełna transformacja, plan żywieniowy i ocena postępów." },
+      { title: "Indywidualny Plan Treningowy", price: "80", description: "Twój spersonalizowany roadmap treningowy.", details: "Plan pod cele i możliwości + konsultacja wstępna + optymalizacja." },
+      { title: "Tygodniowy Plan Żywieniowy", price: "100", description: "Dieta szyta na miarę Twoich potrzeb.", details: "Jadłospis z uwzględnieniem alergii, preferencji i trybu życia." }
     ];
 
-    pricingCards.forEach(card => {
+    // Define which cards should be pinned
+    const pinnedTitles = ["Pierwszy Trening", "Indywidualny Plan Treningowy", "Tygodniowy Plan Żywieniowy"];
+    
+    // Sort cards - pinned cards first
+    const sortedCards = [...pricingCards].sort((a, b) => {
+      const aIsPinned = pinnedTitles.includes(a.title);
+      const bIsPinned = pinnedTitles.includes(b.title);
+      
+      if (aIsPinned && !bIsPinned) return -1;
+      if (!aIsPinned && bIsPinned) return 1;
+      return 0;
+    });
+
+    // Create cards in the sorted order
+    sortedCards.forEach(card => {
       const cardDiv = document.createElement("div");
       cardDiv.className = "bg-[#262626] p-4 rounded shadow pricing-card cursor-pointer";
       cardDiv.setAttribute("data-title", card.title);
       cardDiv.setAttribute("data-price", card.price);
       cardDiv.setAttribute("data-description", card.description);
       cardDiv.setAttribute("data-details", card.details);
-      cardDiv.innerHTML = `
+      
+      // If this is a pinned card, add the appropriate attributes right away
+      if (pinnedTitles.includes(card.title)) {
+        cardDiv.setAttribute("data-pinned", "true");
+        cardDiv.classList.add("free-pricing-card", "glow-effect");
+        
+        // Create the badge with appropriate text
+        const badge = document.createElement("div");
+        badge.className = "free-badge";
+        
+        if (card.title === "Pierwszy Trening") {
+          badge.textContent = "DARMOWY";
+        } else if (card.title === "Indywidualny Plan Treningowy2") {
+          badge.textContent = "NOWOŚĆ";
+        } else {
+          badge.textContent = "POLECANY";
+        }
+        
+        cardDiv.appendChild(badge);
+      }
+      
+      cardDiv.innerHTML += `
         <h3 class="text-xl font-bold">${card.title}</h3>
         <p class="text-lg text-amber-600">${card.price} PLN</p>
       `;
+      
       pricingCardsContainer.appendChild(cardDiv);
     });
 
@@ -224,7 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
     prevBtn.style.display = currentIndex === 0 ? "none" : "block";
     nextBtn.style.display = currentIndex === galleryImages.length - 1 ? "none" : "block";
   }
-  
 
   function closeLightboxFunc() {
     lightbox.classList.add("hidden");
