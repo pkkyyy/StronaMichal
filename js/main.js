@@ -27,7 +27,81 @@ function lazyLoadImages() {
   }
 }
 
+function initBeforeAfterSliders() {
+  const containers = document.querySelectorAll('.before-after-container');
+  
+  containers.forEach(container => {
+    const slider = container.querySelector('.slider-handle');
+    const beforeImage = container.querySelector('.before-image');
+    const afterImageContainer = container.querySelector('.after-image-container');
+    
+    updateSliderPosition(50, beforeImage, afterImageContainer, slider);
+    
+    slider.addEventListener('mousedown', handleDragStart);
+    container.addEventListener('mousemove', handleDrag);
+    window.addEventListener('mouseup', handleDragEnd);
+    
+    slider.addEventListener('touchstart', handleDragStart);
+    container.addEventListener('touchmove', handleDrag);
+    window.addEventListener('touchend', handleDragEnd);
+    
+    container.addEventListener('click', function(e) {
+      if (e.target !== slider) {
+        const rect = container.getBoundingClientRect();
+        const position = ((e.clientX - rect.left) / rect.width) * 100;
+        updateSliderPosition(position, beforeImage, afterImageContainer, slider);
+      }
+    });
+    
+    let isDragging = false;
+    
+    function handleDragStart(e) {
+      e.preventDefault();
+      isDragging = true;
+    }
+    
+    function handleDrag(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      
+      const rect = container.getBoundingClientRect();
+      let clientX;
+      
+      if (e.type === 'touchmove') {
+        clientX = e.touches[0].clientX;
+      } else {
+        clientX = e.clientX;
+      }
+      
+      const position = ((clientX - rect.left) / rect.width) * 100;
+      updateSliderPosition(position, beforeImage, afterImageContainer, slider);
+    }
+    
+    function handleDragEnd() {
+      isDragging = false;
+    }
+  });
+}
+
+function updateSliderPosition(position, beforeImage, afterImageContainer, slider) {
+  position = Math.max(0, Math.min(position, 100));
+  
+  beforeImage.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+  
+  slider.style.left = `${position}%`;
+  
+  if (!slider.classList.contains('with-transition')) {
+    setTimeout(() => {
+      slider.classList.add('with-transition');
+      afterImageContainer.classList.add('with-transition');
+      beforeImage.classList.add('with-transition');
+    }, 50);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  initBeforeAfterSliders();
+
   const smiley = document.querySelector(".smiley-icon");
   const infoBox = document.querySelector(".info-box");
 
