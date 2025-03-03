@@ -125,7 +125,6 @@ button:hover {
   }
 }
 
-
 .modal-body {
   display: flex;
   flex-direction: column;
@@ -146,7 +145,6 @@ button:hover {
   border-radius: 0.25rem;
 }
 
-/* New Compare Container for interactive composite images */
 .compare-container {
   display: flex;
   position: relative;
@@ -165,9 +163,9 @@ button:hover {
 .compare-half .image {
   width: 100%;
   height: 100%;
-  background-size: 100% 100%; /* Force image to always exactly fill the container */
+  background-size: 100% 100%;
   background-position: center;
-  transition: none; /* Ensure no transition on the image itself */
+  transition: none;
 }
 
 .compare-half:hover {
@@ -197,7 +195,7 @@ button:hover {
 .ebook-card img {
   width: 100%;
   height: 10rem;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 #about {
@@ -284,15 +282,14 @@ footer p {
   position: relative;
   display: block;
   width: calc(100% + 450px);
-  height: 150px; /* Adjust the height as needed */
+  height: 150px;
 }
 
 .custom-shape-divider-bottom-hero .shape-fill {
-  fill: #050505; /* Match your black background */
+  fill: #050505;
   stroke: none;
 }
 
-/* Reverse the shape */
 .custom-shape-divider-bottom-hero.reversed {
   transform: scaleY(-1);
 }
@@ -351,7 +348,6 @@ footer {
   display: none;
 }
 
-/* Ensure tooltips for contact icons are visible above the footer */
 .contact-tooltip {
   position: absolute;
   background: rgba(23, 23, 23, 0.9);
@@ -378,7 +374,7 @@ footer {
   visibility: visible;
 }
 #contact {
-  min-height: 300px; /* Adjust as necessary */
+  min-height: 300px;
   padding-bottom: 100px;
 }
 
@@ -406,17 +402,16 @@ footer {
   .modal-tabs {
     position: sticky;
     top: 0;
-    background: #171717; /* a solid background */
+    background: #171717;
     z-index: 10;
-    min-height: 8rem; /* as you set */
+    min-height: 8rem;
     display: flex;
     align-items: center;
   }
   .active-tab {
-    background-color: #FFCA28; /* adjust to your active color */
+    background-color: #FFCA28;
   }
 }
-
 
 @media (max-width: 768px) {
   .compare-container {
@@ -441,7 +436,7 @@ footer {
   padding: 1rem;
   text-align: center;
   z-index: 1000;
-  display: none; /* domyślnie schowany, pokaże się przez JS */
+  display: none;
 }
 .cookie-consent p {
   margin: 0 0 0.5rem;
@@ -455,8 +450,7 @@ footer {
   cursor: pointer;
   border-radius: 0.25rem;
 }
-/* Firefox scrollbar styling */
 * {
-  scrollbar-width: thin; /* "auto" or "thin" */
-  scrollbar-color: #f59e0b #1a1a1a; /* thumb color, track color */
+  scrollbar-width: thin;
+  scrollbar-color: #f59e0b #1a1a1a;
 }

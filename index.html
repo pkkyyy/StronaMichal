@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MICHAŁ SALIŃSKI</title>
+  <title>Michał Saliński</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +25,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<!-- Lightbox dla powiększania zdjęć -->
 <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
   <span id="close-lightbox" class="absolute top-5 right-5 text-white text-3xl cursor-pointer">&times;</span>
   <button id="prev-image" class="absolute left-5 text-white text-4xl cursor-pointer hidden">&larr;</button>
@@ -37,25 +36,24 @@
   <!-- Navigation -->
   <nav class="bg-[#171717] bg-opacity-90 shadow fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-amber-500">MICHAŁ SALIŃSKI</a>
+      <a href="#" class="text-xl font-bold text-amber-500">Michał Saliński</a>
       <div class="space-x-4">
-        <a href="#hero" class="hover:text-amber-400">STRONA GŁÓWNA</a>
-        <a href="#about" class="hover:text-amber-400">O MNIE</a>
-        <a href="#gallery" class="hover:text-amber-400">GALERIA</a>
-        <a href="#contact" class="hover:text-amber-400">KONTAKT</a>
+        <a href="#hero" class="hover:text-amber-400">Strona Główna</a>
+        <a href="#about" class="hover:text-amber-400">O Mnie</a>
+        <a href="#gallery" class="hover:text-amber-400">Galeria</a>
+        <a href="#contact" class="hover:text-amber-400">Kontakt</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- Hero Section -->
   <section id="hero" class="hero flex items-center justify-center relative">
     <div class="hero-content text-center px-4">
       <h1 class="text-5xl font-bold mb-4">Zarezerwuj Trening Personalny</h1>
-      <p class="text-xl mb-8">Osiągnij swoje cele zdrowotne i sylwetkowe z nami!</p>
+      <p class="text-xl mb-8">Osiągnij swoje cele zdrowotne i sylwetkowe ze mną!</p>
       <a href="#" id="openReservation" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded transition">INFORMACJE</a>
     </div>
     
-    <!-- Reversed Wave Divider at the End of the Image -->
     <div class="custom-shape-divider-bottom-hero reversed">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M0,0V46.29c47.24,22.3,103.39,29.85,158.82,27.75,75.88-3.02,143.25-32.79,218.88-38.13,70.43-4.56,136.12,12.44,207.27,19.6,68.38,6.86,137.12,1.27,205.32-9.81,64.82-10.28,130.86-23.09,198.63-21.3V0Z" class="shape-fill"></path>
@@ -67,19 +65,20 @@
   <!-- About Section -->
   <section id="about" class="py-16 bg-[#050505] relative">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">O MNIE</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">O Mnie</h2>
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="md:w-1/2">
           <img src="images/IMG_7078.jpeg" alt="Zdjęcie trenera" class="w-full h-auto rounded shadow">
         </div>
         <div class="md:w-1/2 text-gray-200">
           <p class="text-lg leading-relaxed">
-            Nazywam się Michał Saliński i jestem profesjonalnym trenerem personalnym. Moja pasja do zdrowego stylu życia i sportu pozwala mi pomagać ludziom osiągać ich cele. Dzięki wieloletniemu doświadczeniu oferuję indywidualne podejście do każdego klienta, dostosowując treningi do jego potrzeb.
+            Cześć! Nazywam się Michał i jestem profesjonalnym trenerem personalnym. Moja pasja do zdrowego stylu życia i sportu sprawia, że z pełnym zaangażowaniem pomagam innym osiągać ich cele – niezależnie od poziomu zaawansowania.
+            Dzięki wieloletniemu doświadczeniu wiem, że każdy z nas jest inny, dlatego stawiam na indywidualne podejście. Tworzę treningi dopasowane do Twoich potrzeb, możliwości i stylu życia, tak abyś mógł osiągnąć trwałe efekty i czuć się lepiej na co dzień. 
+            razem znajdziemy najlepszą drogę do Twojego celu!
           </p>
         </div>
       </div>
     </div>
-    <!-- Custom Wave Divider -->
     <div class="custom-shape-divider-bottom">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.42C203.33,71.34,0,12.66,0,12.66V120H1200V12.66S987.66,28.58,865.05,7.84C742.44-12.9,600,15.63,600,15.63S491.45-1.8,321.39,56.42Z" class="shape-fill"></path>
@@ -90,7 +89,7 @@
   <!-- Gallery Section -->
   <section id="gallery" class="py-16 bg-[#dee3e0]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">GALERIA</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Galeria</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div class="gallery-item">
           <img src="images/IMG_7117_resized.jpeg" alt="Zdjęcie 1" class="w-full h-48 object-cover rounded shadow">
@@ -108,78 +107,30 @@
     </div>
   </section>
   
-  <!-- Podopieczni Section (Composite with Hover Reveal) -->
+  <!-- Podopieczni Section -->
   <section id="podopieczni" class="py-16 bg-[#dee3e0]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">PODOPIECZNI</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Podopieczni</h2>
       <p class="text-center text-gray-900 mb-8">
         Zobacz efekty naszej współpracy przed i po treningach.
       </p>
 
-      <!-- New grid container for compare items -->
       <div class="podopieczni-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Compare item 1 -->
+        <!-- Item 1 -->
         <div class="podopieczni-item">
-          <h3 class="text-center mt-2 text-amber-900">SZYMON</h3>
+          <h3 class="text-center mt-2 text-amber-900">Michał</h3>
           <div class="compare-container h-[32rem] object-cover rounded shadow">
             <div class="compare-half compare-half-left">
-              <div class="image" style="background-image: url('images/szymon-before.jpg');"></div>
+              <div class="image" style="background-image: url('images/michal-before.jpg');"></div>
             </div>
             <div class="compare-half compare-half-right">
-              <div class="image" style="background-image: url('images/szymon-after.jpg');"></div>
+              <div class="image" style="background-image: url('images/michal-after.jpg');"></div>
             </div>
             <div class="compare-label before-label">PRZED</div>
             <div class="compare-label after-label">PO</div>
           </div>
-        </div>
-
-        <!-- Compare item 2 -->
-        <div class="podopieczni-item">
-          <h3 class="text-center mt-2 text-amber-900">MONIKA</h3>
-          <div class="compare-container h-[32rem] object-cover rounded shadow">
-            <div class="compare-half compare-half-left">
-              <div class="image" style="background-image: url('images/monika-before.jpg');"></div>
-            </div>
-            <div class="compare-half compare-half-right">
-              <div class="image" style="background-image: url('images/monika-after.jpg');"></div>
-            </div>
-            <div class="compare-label before-label">PRZED</div>
-            <div class="compare-label after-label">PO</div>
-          </div>
-        </div>
-
-        <!-- Compare item 3 (new) -->
-        <div class="podopieczni-item">
-          <h3 class="text-center mt-2 text-amber-900">Extra 1</h3>
-          <div class="compare-container h-[32rem] object-cover rounded shadow">
-            <div class="compare-half compare-half-left">
-              <div class="image" style="background-image: url('images/extra1-before.jpg');"></div>
-            </div>
-            <div class="compare-half compare-half-right">
-              <div class="image" style="background-image: url('images/extra1-after.jpg');"></div>
-            </div>
-            <div class="compare-label before-label">PRZED</div>
-            <div class="compare-label after-label">PO</div>
-          </div>
-        </div>
-
-        <!-- Compare item 4 (new) -->
-        <div class="podopieczni-item">
-          <h3 class="text-center mt-2 text-amber-900">Extra 2</h3>
-          <div class="compare-container h-[32rem] object-cover rounded shadow">
-            <div class="compare-half compare-half-left">
-              <div class="image" style="background-image: url('images/extra2-before.jpg');"></div>
-            </div>
-            <div class="compare-half compare-half-right">
-              <div class="image" style="background-image: url('images/extra2-after.jpg');"></div>
-            </div>
-            <div class="compare-label before-label">PRZED</div>
-            <div class="compare-label after-label">PO</div>
-          </div>
-          
-        </div>
-        
-        <!-- Add more .podopieczni-item blocks as needed -->
+        </div>      
+        <!-- Dodaj więcej -->
       </div>
     </div>
   </section>  
@@ -187,7 +138,7 @@
   <!-- Contact Section -->
   <section id="contact" class="py-16 bg-[#dee3e0]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">KONTAKT</h2>
+      <h2 class="text-3xl font-bold text-center text-amber-500 mb-6">Kontakt</h2>
       <div class="flex flex-col items-center">
         <div id="socialIcons" class="mb-4 flex items-center space-x-6">
           <div class="relative group">
@@ -223,7 +174,6 @@
   <div id="reservationModal" class="modal">
     <div class="modal-content">
       <span id="modalClose" class="modal-close">&times;</span>
-      <!-- Tabs for mobile (hidden on larger screens) -->
       <div class="modal-tabs flex md:hidden">
         <button id="tabPricing" class="modal-tab flex-1 py-2 bg-gray-700 text-white">Cennik</button>
         <button id="tabEbooks" class="modal-tab flex-1 py-2 bg-gray-700 text-white">Ebooki</button>
@@ -233,7 +183,6 @@
         <div id="pricingContainer"></div>
         <!-- Right Column: Ebooks -->
         <div id="ebooksContainer">
-          <!-- Optional: Make ebooks container scrollable on mobile -->
           <div class="mb-4 md:mb-0">
             <label for="caloriesFilter" class="block text-sm font-medium mb-1">Filtruj po Kaloriach:</label>
             <input type="number" id="caloriesFilter" class="w-full border border-gray-300 text-gray-600 rounded px-3 py-2" placeholder="Podaj wartość kalorii">
@@ -250,10 +199,8 @@
     </div>
   </footer>
 
-  <!-- External JS -->
   <script src="js/main.js"></script>
 
-  <!-- Smiley Face Icon -->
   <div class="smiley-icon fixed bottom-5 right-5 text-base cursor-pointer">
     😊
   </div>
@@ -263,7 +210,6 @@
     <p>Paweł Kurantowicz</p>
     <p>pawkurantowicz@gmail.com</p>
   </div>
-
 
   <div id="cookieConsent" class="cookie-consent">
     <p>Nasza strona używa cookies, aby zapewnić najlepsze doświadczenia. Czy akceptujesz?</p>
